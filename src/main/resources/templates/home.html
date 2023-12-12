@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mã Quà Tặng</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      text-align: center;
+    }
+
+    h2 {
+      color: #e44d26;
+      margin-top: 50px;
+    }
+
+    form {
+      margin-top: 20px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 17px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    button {
+      background-color: #0089ff;
+      color: #fff;
+      cursor: pointer;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: #e44d26;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Lấy mã xác nhận</h2>
+
+<form class="ok" method="post">
+  <label for="code" th:text="'Xin chào '+ ${Account.account.username} +',mã xác nhận của bạn là:'"></label>
+  <input style="font-size: 22px;color: #0089ff" type="text" id="code" name="code" th:value="${Account.code}" readonly>
+  <label for="code" th:text="'Vui lòng lưu lại và nhập vào game để nhận quà nhé!'"></label>
+
+
+  <script type="text/javascript">
+    // Chặn F5 và tải lại trang
+    document.addEventListener("keydown", function (e) {
+      if (
+              (e.key === "F5" || e.code === "F5")
+              || ((e.altKey === 116|| e.location === 116))
+              || e.returnValue
+      )  {
+        e.preventDefault();
+        window.location.href = "/error"; // Đường dẫn tới trang /error
+      }
+    });
+
+    // Chặn sự kiện tải lại trang từ menu hoặc nút trình duyệt
+    window.addEventListener("beforeunload", function (e) {
+      var confirmationMessage = "Bạn có chắc chắn muốn rời khỏi trang?";
+      e.returnValue = confirmationMessage;
+      return confirmationMessage;
+    });
+  </script>
+
+
+
+</form>
+</body>
+
+</html>

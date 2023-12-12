@@ -1,0 +1,215 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <link rel="preconnect" href="https://fonts.googleapis.com">-->
+<!--  <title>Register</title>-->
+<!--  <link rel="stylesheet" href="/css/register-style.css">-->
+
+<!--  <script src="https://kit.fontawesome.com/d49368c597.js" crossorigin="anonymous"></script>-->
+
+<!--  &lt;!&ndash; Font Awesome Icons&ndash;&gt;-->
+<!--  <link rel="preconnect" href="https://fonts.googleapis.com">-->
+<!--<style>-->
+<!--  body {-->
+<!--    margin: 0;-->
+<!--    padding: 0;-->
+<!--    font-family: 'Arial', sans-serif;-->
+<!--  }-->
+
+<!--  section {-->
+<!--    display: flex;-->
+<!--    justify-content: space-between;-->
+<!--    align-items: center;-->
+<!--    min-height: 100vh;-->
+<!--  }-->
+
+<!--  .imgBx {-->
+<!--    width: 50%;-->
+<!--    height: 100vh;-->
+<!--    background: url('your-image-url.jpg') center/cover no-repeat;-->
+<!--  }-->
+
+<!--  .contentBx {-->
+<!--    width: 50%;-->
+<!--    height: 100vh;-->
+<!--    display: flex;-->
+<!--    justify-content: center;-->
+<!--    align-items: center;-->
+<!--    background: #fff;-->
+<!--  }-->
+
+<!--  .formBx {-->
+<!--    max-width: 400px;-->
+<!--    width: 100%;-->
+<!--    padding: 40px;-->
+<!--    box-sizing: border-box;-->
+<!--    text-align: center;-->
+<!--  }-->
+
+<!--  .formBx h2 {-->
+<!--    font-size: 2.5rem;-->
+<!--    color: #333;-->
+<!--    margin-bottom: 30px;-->
+<!--  }-->
+
+<!--  .inputBx {-->
+<!--    position: relative;-->
+<!--    margin-bottom: 54px;-->
+<!--  }-->
+
+<!--  .inputBx span {-->
+
+<!--    font-size: 1rem;-->
+<!--    color: #313131;-->
+<!--    position: absolute;-->
+<!--    left: 10px;-->
+<!--    top: -19%;-->
+<!--    transform: translateY(-50%);-->
+<!--    pointer-events: none;-->
+<!--    transition: 0.5s;-->
+<!--  }-->
+
+<!--  input {-->
+<!--    width: 100%;-->
+<!--    padding: 15px;-->
+<!--    box-sizing: border-box;-->
+<!--    background: #f8f8f8;-->
+<!--    outline: none;-->
+<!--    color: black;-->
+<!--    text-decoration: none;-->
+<!--    border: none;-->
+<!--  }-->
+
+<!--  input:focus ~ span,-->
+<!--  input:valid ~ span {-->
+<!--    top: -10px;-->
+<!--    color: #e44d26;-->
+<!--  }-->
+
+<!--  input[type="submit"] {-->
+<!--    width: 100%;-->
+<!--    padding: 15px;-->
+<!--    margin-left: -3px;-->
+<!--    box-sizing: border-box;-->
+<!--    background: #e44d26;-->
+<!--    color: #fff;-->
+<!--    border: none;-->
+<!--    outline: none;-->
+<!--    cursor: pointer;-->
+<!--  }-->
+
+<!--  .inputBx p {-->
+<!--    margin-top: 20px;-->
+<!--    color: #333;-->
+<!--  }-->
+
+<!--  .inputBx a {-->
+<!--    text-decoration: none;-->
+<!--    color: #e44d26;-->
+<!--    font-weight: bold;-->
+<!--  }-->
+
+<!--  .error-message {-->
+<!--    color: #e44d26;-->
+<!--    display: none;-->
+<!--    margin-top: 5px;-->
+<!--  }-->
+
+<!--  @media (max-width: 768px) {-->
+<!--    section {-->
+<!--      flex-direction: column;-->
+<!--    }-->
+
+<!--    .imgBx,-->
+<!--    .contentBx {-->
+<!--      width: 100%;-->
+<!--      height: auto;-->
+<!--    }-->
+
+<!--    .imgBx {-->
+<!--      order: 2;-->
+<!--    }-->
+
+<!--    .formBx {-->
+<!--      max-width: 100%;-->
+<!--    }-->
+<!--  }-->
+
+<!--</style>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--<section>-->
+<!--  <div class="imgBx">-->
+<!--  </div>-->
+
+<!--  <div class="contentBx">-->
+<!--    <div class="formBx" style="-->
+<!--    max-width: 400px;-->
+<!--    width: 100%;-->
+<!--    padding: 40px;-->
+<!--    margin-left: -671px;-->
+<!--    border-radius: 20px;-->
+<!--        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--    box-sizing: border-box;-->
+<!--    text-align: center;-->
+<!--">-->
+<!--      <h2>Register</h2>-->
+
+<!--      &lt;!&ndash; Include the form from the first file here &ndash;&gt;-->
+<!--      <form th:action="@{/users/register}" method="post" th:object="${user}" onsubmit="return validateForm()">-->
+<!--        <div class="inputBx">-->
+<!--          <span>Username</span>-->
+<!--          <input type="text" name="username" th:field="*{username}" required>-->
+<!--        </div>-->
+
+<!--        <div class="inputBx">-->
+<!--          <span>Password</span>-->
+<!--          <input type="password" name="password" id="password" required>-->
+
+<!--        </div>-->
+
+<!--        <div class="inputBx">-->
+<!--          <span>Confirm Password</span>-->
+<!--          <input type="password" name="confirmPassword" id="confirmPassword" required>-->
+
+<!--          <p id="passwordMismatch" class="error-message">Passwords do not match.</p>-->
+<!--        </div>-->
+
+<!--        <div class="inputBx">-->
+<!--          <input type="submit" value="Register" name="">-->
+<!--        </div>-->
+
+<!--        <div class="inputBx">-->
+<!--          <p>Already have an account? <a th:href="@{/users/login}">Login now</a> </p>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+<!--<script>-->
+<!--  const passwordInput = document.querySelector('input[name="password"]');-->
+<!--  const confirmPasswordInput = document.querySelector('input[name="confirmPassword"]');-->
+<!--  const passwordMismatchMessage = document.getElementById('passwordMismatch');-->
+
+<!--  confirmPasswordInput.addEventListener('input', function () {-->
+<!--    if (passwordInput.value !== confirmPasswordInput.value) {-->
+<!--      passwordMismatchMessage.style.display = 'block';-->
+<!--    } else {-->
+<!--      passwordMismatchMessage.style.display = 'none';-->
+<!--    }-->
+<!--  });-->
+
+<!--  function validateForm() {-->
+<!--    if (passwordInput.value !== confirmPasswordInput.value) {-->
+<!--      alert("Passwords do not match. Please correct the error.");-->
+<!--      return false; // Prevent form submission-->
+<!--    }-->
+<!--    return true; // Allow form submission-->
+<!--  }-->
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->

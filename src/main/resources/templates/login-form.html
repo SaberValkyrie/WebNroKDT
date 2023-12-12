@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+
+  <script src="https://kit.fontawesome.com/d49368c597.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/d49368c597.js" crossorigin="anonymous"></script>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="plugins/venobox/venobox.css">
+  <link rel="stylesheet" href="plugins/animate/animate.css">
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+  <link rel="stylesheet" href="plugins/bootstrap-touchspin-master/jquery.bootstrap-touchspin.min.css">
+  <link rel="stylesheet" href="plugins/nice-select/nice-select.css">
+  <link rel="stylesheet" href="plugins/bootstrap-slider/bootstrap-slider.min.css">
+
+  <!-- Main Stylesheet -->
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+  }
+
+  .container {
+    position: absolute;
+    top: 48%;
+    border-radius: 20px;
+    /* border-radius: 37px; */
+    left: 50%;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    width: 396px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .cover {
+    position: relative;
+    width: 100%;
+    height: 15px;
+    /* border-radius: 17px; */
+    background-color: #e44d26;
+  }
+
+  .front {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    color: #fff;
+  }
+
+  .form-content {
+    padding: 20px;
+  }
+
+  .login-form {
+    text-align: center;
+  }
+
+  .title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .input-boxes {
+    text-align: left;
+  }
+
+  .input-box {
+    margin-bottom: 40px;
+    position: relative;
+    width: 381px;
+  }
+
+  .input-box i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 6px;
+    color: #E44D25;
+  }
+
+  .input-box label {
+    display: flex;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: calc(100% - 30px);
+    padding: 10px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  #togglePassword {
+    position: absolute;
+    top: 54%;
+    transform: translateY(-50%);
+    margin-left: 317px;
+    cursor: pointer;
+    color: #e44d26;
+  }
+
+  .button input {
+    background-color: #e44d26;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  .text {
+    margin-top: 20px;
+    color: #333;
+  }
+
+  .text a {
+    text-decoration: none;
+    color: #e44d26;
+    font-weight: bold;
+  }
+
+  .alert {
+    margin-top: 20px;
+    color: #e44d26;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      width: 80%;
+    }
+  }
+
+</style>
+  <!--Favicon-->
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+  <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/plugins/slick/slick.css">
+  <link rel="stylesheet" href="/plugins/venobox/venobox.css">
+  <link rel="stylesheet" href="/plugins/animate/animate.css">
+  <link rel="stylesheet" href="/plugins/aos/aos.css">
+  <link rel="stylesheet" href="/plugins/bootstrap-touchspin-master/jquery.bootstrap-touchspin.min.css">
+  <link rel="stylesheet" href="/plugins/nice-select/nice-select.css">
+  <link rel="stylesheet" href="/plugins/bootstrap-slider/bootstrap-slider.min.css">
+
+  <!-- Main Stylesheet -->
+  <link href="/css/style.css" rel="stylesheet">
+
+  <!-- Font Awesome Icons-->
+  <script src="https://kit.fontawesome.com/d49368c597.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="/css/login-style.css">
+  <script>
+    function showAlert(message) {
+      alert(message);
+    }
+
+
+
+    function togglePasswordVisibility() {
+      const passwordInput = document.getElementById("passwordInput");
+      const togglePassword = document.getElementById("togglePassword");
+
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        togglePassword.classList.remove("fa-eye");
+        togglePassword.classList.add("fa-eye-slash");
+      } else {
+        passwordInput.type = "password";
+        togglePassword.classList.remove("fa-eye-slash");
+        togglePassword.classList.add("fa-eye");
+      }
+    }
+  </script>
+
+
+</head>
+<body>
+<div class="container">
+  <div class="cover">
+    <div class="front">
+    </div>
+  </div>
+  <form th:action="@{/users/login}" method="post" th:object="${user}" >
+    <div class="form-content">
+      <div class="login-form">
+        <div class="title">Login</div>
+        <div class="input-boxes">
+          <div class="input-box">
+            <i class="fa-solid fa-user"></i>
+            <label>
+              <input type="text" placeholder="Enter your username" th:field="*{username}" required>
+            </label>
+          </div>
+          <div class="input-box">
+            <i class="fa-solid fa-lock"></i>
+            <label>
+              <input type="password" placeholder="Enter your password" th:field="*{password}" required id="passwordInput">
+              <i class="fas fa-eye" id="togglePassword" onclick="togglePasswordVisibility()"></i>
+            </label>
+          </div>
+          <div class="button input-box">
+            <input type="submit" value="Submit">
+          </div>
+          <div class="text">
+            <p>Don't have an account?<a th:href="@{/users/register}"> Register now</a></p>
+          </div>
+
+
+
+          <div th:if="${error}">
+            <script th:inline="javascript">
+              showAlert([[${errorban}]]);
+            </script>
+
+          </div>
+
+          <div th:if="${error1}">
+            <script th:inline="javascript">
+              showAlert([[${errorMessage}]]);
+            </script>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+
+</body>
+</html>

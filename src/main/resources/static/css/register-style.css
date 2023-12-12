@@ -1,0 +1,110 @@
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins',sans-serif;
+}
+
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+.imgBx{
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+ img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+ /*.imgBx:before{*/
+ /*    content: '';*/
+ /*    position: absolute;*/
+ /*    top: 0;*/
+ /*    left: 0;*/
+ /*    width: 100%;*/
+ /*    height: 100%;*/
+ /*    background: linear-gradient(225deg,#007bff,#f8f9fa);*/
+ /*    z-index: 1;*/
+ /*    mix-blend-mode: screen;*/
+ /*    */
+ /*}*/
+
+.contentBx{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 50%;
+}
+
+.formBx {
+    width: 60%;
+    height: 100%;
+    margin-top: 250px;
+}
+
+h2 {
+    color: orangered;            /* Màu chữ được đặt thành màu đỏ cam */
+    font-weight: 600;            /* Trọng số phông chữ được đặt thành đậm (600) */
+    font-size: 1.5em;            /* Kích thước phông chữ được đặt là 1.5 lần kích thước của phông chữ cha */
+    text-transform: uppercase;   /* Chữ được chuyển thành chữ viết hoa */
+    margin-bottom: 20px;         /* Thêm lề ở phía dưới của phần tử */
+    border-bottom: 4px solid orange; /* Thêm viền 4px dày màu cam ở phía dưới */
+    display: inline-block;       /* Hiển thị phần tử như một khối nội dòng */
+    letter-spacing: 1px;         /* Thêm khoảng cách giữa các chữ cái */
+}
+
+
+.inputBx{
+    margin-bottom: 20px;
+}
+span {
+    font-size: 22px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: black;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+input{
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid orangered;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: orangered;
+    background: transparent;
+    border-radius: 30px;
+}
+input[type=submit]{
+    background: orangered;
+    color: white;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 26px;
+}
+
+input[type=submit]:hover{
+    background:darkorange ;
+}
+
+a{
+    color: orangered;
+    font-size: 20px;
+}
+p{
+    font-size: 25px;
+}
+

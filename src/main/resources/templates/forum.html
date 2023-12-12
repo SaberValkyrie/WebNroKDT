@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Đen</title>
+
+    <style>
+        body {
+            background-color: #ba7000; /* Màu nền trang */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 1px;
+            padding: 5px;
+        }
+
+        button {
+            background-color: #ffaa00; /* Màu cam */
+            color: #fff; /* Màu chữ trắng */
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px; /* Góc bo tròn */
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow */
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff6300;
+            border: 2px solid red;
+            text-shadow: 1px 0 #00a1ff;
+        }
+
+        a {
+            display: block;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ffaa00; /* Màu vàng */
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .duoi {
+            display: contents;
+            padding: 22px;
+            width: 434px;
+            margin-left: 252px;
+            margin-top: 59px;
+        }
+        .bao {
+            background-color: #dbdbdb;
+            width: 1000px;
+            height: 313px;
+            border-radius: 20px;
+            box-shadow: blanchedalmond;
+        }
+        a.tren {
+            font-size: 20px;
+            margin-top: 45px;
+            color: currentColor;
+            padding: -18px;
+        }
+        a.tren:hover {
+            font-size: 20px;
+            margin-top: 45px;
+            color: blue;
+            padding: -18px;
+        }
+        .tren1 {
+            margin-top: -41px;
+        }
+        .inputBx {
+            position: relative;
+            margin-bottom: 54px;
+            color: blue;
+        }
+        .inputBx:hover {
+            position: relative;
+            margin-bottom: 54px;
+            color: #ff01f2;
+            box-shadow: 2px 0 black;
+        }
+
+        i.fa-solid.fa-right-from-bracket {
+            margin-left: 351px;
+            color: #0089ff;
+            /* margin-top: -227px; */
+        }
+        i.fa-solid.fa-right-from-bracket:hover {
+           color: #dc119d;
+            /* margin-top: -227px; */
+        }
+
+        /*.concac{*/
+        /*    color: blue;*/
+        /*}*/
+        /*.concac:hover{*/
+        /*    border: 2px solid red;*/
+        /*}*/
+    </style>
+    <script src="https://kit.fontawesome.com/d49368c597.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<div class="bao">
+
+
+    <div>
+        <a  class="tren" th:if="${loggedInUser != null}"
+           th:text="'Xin chào ' + ${loggedInUser.username} + ', bạn muốn làm gì?'">
+
+        </a>
+        <div class="tren1">
+            <a   href="/users/logout" >
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </a>
+    </div>
+
+    </div>
+    <div class="duoi">
+        <form method="post" action="/getCode">
+            <button type="submit">Lấy Mã Quà Tặng</button>
+        </form>
+        <form method="get" action="/users/change-password">
+            <button type="submit">Đổi Mật Khẩu</button>
+        </form>
+        <form  th:if="${loggedInUser != null
+        && loggedInUser.role == 1}"
+               method="get" action="/users/quanLyLienKet/1">
+            <button type="submit">Quản Lí Liên Kết</button>
+        </form>
+    </div>
+<br>
+    <div>
+       <a class="inputBx" href="https://www.youtube.com/watch?v=ITedsPeRpN8">Bạn chưa biết cách mã? Xem ngay cách lấy mã tại đây</a>
+    </div>
+</div>
+
+
+
+</body>
+
+</html>
