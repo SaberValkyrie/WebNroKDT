@@ -24,9 +24,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/users")
 public class UserController {
-//    public static String urlIP = "103.161.181.15:8080";
-public static String urlIP = "localhost:8080";
-
+//    public static String urlIP = "nrolink.fun";
+    public static String urlIP = "localhost";
     private UserService userService;
     private UrlService urlService;
 

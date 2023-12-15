@@ -17,7 +17,7 @@ body{
 .container{
     position: absolute;
     max-width: 850px;
-    width: 100%;
+    width: 387px;
     background: #fff;
     padding: 40px 30px;
     box-shadow:  0px 5px 10px rgba(0,0,0,0.2);
@@ -28,12 +28,14 @@ body{
     left: 50%;
     height: 100%;
     width: 50%;
+    display: none;
 
     background: red;
     z-index: 98;
 }
 .container .form-content{
     display: flex;
+    width:667px;
     align-items: center;
     justify-content: space-between;
 

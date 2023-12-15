@@ -114,7 +114,9 @@
 
 <body>
 
-<div class="bao">
+<a class="inputBx" th:if="${error}" th:text="${error}" style="color: white"></a>
+
+<div class="bao"  th:if="${error == null}">
 
 
     <div>
@@ -130,7 +132,7 @@
 
     </div>
     <div class="duoi">
-        <form method="post" action="/getCode">
+        <form method="post" action="/getCode" target="_blank">
             <button type="submit">Lấy Mã Quà Tặng</button>
         </form>
         <form method="get" action="/users/change-password">
@@ -144,10 +146,9 @@
     </div>
 <br>
     <div>
-       <a class="inputBx" href="https://www.youtube.com/watch?v=ITedsPeRpN8">Bạn chưa biết cách mã? Xem ngay cách lấy mã tại đây</a>
+        <a class="inputBx" href="https://www.youtube.com/watch?v=ITedsPeRpN8">Bạn chưa biết cách mã? Xem ngay cách lấy mã tại đây</a>
     </div>
 </div>
-
 
 
 </body>

@@ -61,6 +61,16 @@ public class UserService {
         return url;
     }
 
+    public String getIP(Account account){
+        String ip = urlRepository.findIP(account.userId);
+        return ip;
+    }
+
+    public int sumIP(String ip_add){
+        int ip = urlRepository.sumViewsByIpAddress(ip_add);
+        return ip;
+    }
+
     public static String md5(String pass) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");

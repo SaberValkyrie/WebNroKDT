@@ -49,6 +49,15 @@ private UserService userService;
         if (loggedInUser == null) {
             return "redirect:/users/login";
         }
+
+        String ip_address = userService.getIP(loggedInUser);//ip của nick
+        int tongViews = userService.sumIP(ip_address);
+        System.out.println(" : tong : " + tongViews);
+
+        if (tongViews > 10){
+            model.addAttribute("error","Bạn đã vượt link quá 10 lần trong ngày hôm nay,vui lòng chờ tới ngày mai!");
+            return "forum";
+        }
         String linkForAccount = userService.checkUrl(loggedInUser);
         return "redirect:" + linkForAccount;
     }
